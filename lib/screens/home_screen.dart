@@ -13,7 +13,12 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Películas klsdjañfjasdk'),
+          title: Text(
+            'Películas FIS',
+            style: TextStyle(
+                color: Colors.white), // Esto cambia el color del texto a blanco
+          ),
+          centerTitle: true,
           elevation: 0,
           actions: [
             IconButton(
