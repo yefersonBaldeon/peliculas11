@@ -7,8 +7,8 @@ class MovieSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 300,
-      color: Colors.red,
+      height: 270,
+      // color: Colors.red,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -37,29 +37,30 @@ class _MoviePoster extends StatelessWidget {
     return Container(
       width: 130,
       height: 190,
-      color: Colors.green,
       margin: EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         children: [
-          FadeInImage(
-            placeholder: AssetImage('assets/no-image.jpg'),
-            image: NetworkImage("https://via.placeholder.com/300x400"),
-            width: 130,
-            height: 190,
-            fit: BoxFit.cover,
-            
+          GestureDetector(
+            onTap: () =>
+                Navigator.pushNamed(context, 'details', arguments: 'movie-instance'),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: FadeInImage(
+                placeholder: AssetImage('assets/no-image.jpg'),
+                image: NetworkImage("https://via.placeholder.com/300x400"),
+                width: 130,
+                height: 190,
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-
-
-          SizedBox( height: 5 ),
-
-          Text( 
+          SizedBox(height: 5),
+          Text(
             "Star Wars: El retorno del Jedi",
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
           )
-
         ],
       ),
     );
